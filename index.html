@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gig Shift Planner - compare shifts by real take-home per hour</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Gig Shift Planner</h1>
+<p class="tag">Two offers can pay the same and still not be worth the same. This planner prices tips, mileage, and dead time into one number: real take-home per hour behind the wheel.</p>
+<section id="builder">
+<h2>Shift 1</h2>
+<div class="row"><label>Fare or guaranteed pay ($)</label><input id="a-fare" type="number" value="18" min="0" step="0.5"></div>
+<div class="row"><label>Estimated tips ($)</label><input id="a-tips" type="number" value="6" min="0" step="0.5"></div>
+<div class="row"><label>Minutes driving with a passenger or order</label><input id="a-drive" type="number" value="45" min="1"></div>
+<div class="row"><label>Minutes waiting or dead-heading back</label><input id="a-dead" type="number" value="25" min="0"></div>
+<div class="row"><label>Miles driven total</label><input id="a-miles" type="number" value="22" min="0" step="0.1"></div>
+<div class="row"><label>Your car cost per mile ($)</label><input id="a-cpm" type="number" value="0.30" min="0" step="0.01"></div>
+<h2>Shift 2</h2>
+<div class="row"><label>Fare or guaranteed pay ($)</label><input id="b-fare" type="number" value="24" min="0" step="0.5"></div>
+<div class="row"><label>Estimated tips ($)</label><input id="b-tips" type="number" value="3" min="0" step="0.5"></div>
+<div class="row"><label>Minutes driving with a passenger or order</label><input id="b-drive" type="number" value="70" min="1"></div>
+<div class="row"><label>Minutes waiting or dead-heading back</label><input id="b-dead" type="number" value="10" min="0"></div>
+<div class="row"><label>Miles driven total</label><input id="b-miles" type="number" value="41" min="0" step="0.1"></div>
+<div class="row"><label>Your car cost per mile ($)</label><input id="b-cpm" type="number" value="0.30" min="0" step="0.01"></div>
+<button id="go">Compare shifts</button>
+</section>
+<section id="out" hidden>
+<div id="verdict"></div>
+<table>
+<thead><tr><th></th><th id="h1">Shift 1</th><th id="h2">Shift 2</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+<p id="notes"></p>
+</section>
+<section class="about">
+<h2>Why the sticker rate lies</h2>
+<p>A $24 fare with 70 paid minutes can beat an $18 fare with 45 paid minutes on the app's own math and still lose once the unpaid half of the hour gets counted. Waiting at a curb, chasing a surge that moved, and driving back to a busy zone are all work. They just don't show up as paid minutes.</p>
+<p>The second quiet cost is the car. At the 2026 IRS business rate of 72.5 cents per mile, a 41-mile night carries about $29.73 of depreciation, gas, and wear. Even a conservative 30 cent figure turns that same night into $12.30 of real expense before a dollar of it is profit. Method reference: <a href="https://www.irs.gov/tax-professionals/standard-mileage-rates">IRS standard mileage rates</a>.</p>
+<p>This is the same receipts-first method behind <a href="https://extrahustles.com">ExtraHustles</a>: price every input, then trust the hourly number you actually earn.</p>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
